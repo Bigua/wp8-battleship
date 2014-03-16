@@ -9,7 +9,7 @@ namespace Battleship.Codes.Vessels
     class AircraftCarrier : Boat
     { 
         public AircraftCarrier(string orientation)
-            : base(5, orientation)
+            : base(Vessel.aircraftCarrier, orientation)
         {
 
         }

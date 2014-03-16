@@ -9,7 +9,7 @@ namespace Battleship.Codes.Vessels
     class JetSki : Boat
     {
         public JetSki(string orientation)
-            : base(1, orientation)
+            : base(Vessel.jetSki, orientation)
         {
         }
     }

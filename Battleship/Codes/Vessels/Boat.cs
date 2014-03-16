@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Battleship.Codes
 {
-    enum Types { jetSky, speedboat, frigate, destroyer, aircraftCarrier }
     class Boat
     {
         public bool sunken { get; set; }
-        public int type { get; set; }
+        public Vessel type { get; set; }
         public string orientation { get; set; }
         public int damage { get; set; }
 
-        public Boat(int type, string orientation)
+        public Boat(Vessel type, string orientation)
         {
             this.type = type;
             this.orientation = orientation;

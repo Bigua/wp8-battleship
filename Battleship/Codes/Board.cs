@@ -21,12 +21,14 @@ namespace Battleship.Codes
                         { 0,0,0,0,0,0,0,0,0,0}, 
                       };
         public Board()
-        { 
+        {
             this.print();
         }
 
         public void print()
         {
+            int a = (int)Vessel.jetSki;
+            //bool a = true;
             for (int i = 0; i < 10; i++)
             {
                 string line = "";
@@ -34,9 +36,9 @@ namespace Battleship.Codes
                 {
                     line = line + Convert.ToString(grid[i, j]);
                 }
-                Debug.WriteLine(line);
+                Debug.WriteLine(typeof(Vessel.jetSki));
+               
             }
-
         }
     }
 }

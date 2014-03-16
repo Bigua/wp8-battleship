@@ -94,6 +94,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Codes\Board.cs" />
+    <Compile Include="Codes\enums.cs" />
     <Compile Include="Codes\Game.cs" />
     <Compile Include="Codes\Vessels\AircraftCarrier.cs" />
     <Compile Include="Codes\Vessels\Boat.cs" />

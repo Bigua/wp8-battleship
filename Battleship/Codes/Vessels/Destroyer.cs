@@ -9,7 +9,7 @@ namespace Battleship.Codes.Vessels
     class Destroyer : Boat
     {
         public Destroyer(string orientation)
-            : base(4, orientation)
+            : base(Vessel.destroyer, orientation)
         {
 
         }

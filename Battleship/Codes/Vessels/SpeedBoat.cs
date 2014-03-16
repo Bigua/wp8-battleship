@@ -9,7 +9,7 @@ namespace Battleship.Codes.Vessels
     class SpeedBoat : Boat
     {
         public SpeedBoat(string orientation)
-            : base(2, orientation)
+            : base(Vessel.speedboat, orientation)
         {
 
         }

@@ -9,7 +9,7 @@ namespace Battleship.Codes.Vessels
     class Frigate : Boat
     {
         public Frigate(string orientation)
-            : base(3, orientation)
+            : base(Vessel.frigate, orientation)
         {
 
         }
