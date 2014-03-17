@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Battleship.Codes
 {
-    enum Vessel { jetSki, speedboat, frigate, destroyer, aircraftCarrier }
+    enum Vessel { jetSki = 1, speedboat, frigate, destroyer, aircraftCarrier }
 
 }

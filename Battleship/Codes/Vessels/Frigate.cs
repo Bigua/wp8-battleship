@@ -8,8 +8,8 @@ namespace Battleship.Codes.Vessels
 {
     class Frigate : Boat
     {
-        public Frigate(string orientation)
-            : base(Vessel.frigate, orientation)
+        public Frigate(int id, int orientation)
+            : base(Vessel.frigate, id, orientation)
         {
 
         }

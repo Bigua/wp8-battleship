@@ -10,11 +10,13 @@ namespace Battleship.Codes
     {
         public bool sunken { get; set; }
         public Vessel type { get; set; }
-        public string orientation { get; set; }
+        public int orientation { get; set; }
         public int damage { get; set; }
+        public int id { get; set; }
 
-        public Boat(Vessel type, string orientation)
+        public Boat(Vessel type, int id, int orientation)
         {
+            this.id = id;
             this.type = type;
             this.orientation = orientation;
             this.sunken = false;
