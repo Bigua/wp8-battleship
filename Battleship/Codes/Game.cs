@@ -15,7 +15,6 @@ namespace Battleship.Codes
         {
             board = new Board();
             this.makeShips();
-
         }
 
         public void makeShips()
@@ -43,6 +42,16 @@ namespace Battleship.Codes
             boats.Add(new AircraftCarrier(50, rnd.Next(1, 3)));
 
             board.populate(boats);
+        }
+
+        public void Shoot()
+        {
+
+        }
+
+        public void testEffective()
+        {
+
         }
 
     }
