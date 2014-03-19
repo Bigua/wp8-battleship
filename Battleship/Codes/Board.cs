@@ -9,23 +9,18 @@ namespace Battleship.Codes
 {
     class Board
     {
-        int[,] grid = { { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
-                        { 0,0,0,0,0,0,0,0,0,0}, 
+        int[,] grid = { { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
+                        { 00,00,00,00,00,00,00,00,00,00}, 
                       };
         Random rnd = new Random();
-
-        public Board()
-        {
-            this.print();
-        }
 
         public void populate(List<Boat> boats)
         {
@@ -40,19 +35,54 @@ namespace Battleship.Codes
                 }
                 this.insert(vessel, x, y);
             }
+            this.print();
         }
 
         public void insert(Boat vessel, int x, int y)
         {
-            this.getPoints(vessel, x, y);
+            List<int[]> points = this.getPoints(vessel, x, y);
+            foreach (int[] point in points)
+            {
+                grid[point[0], point[1]] = vessel.id;
+            }
+        }
+
+        public int shoot(int x, int y)
+        {
+            if (grid[x, y] != 0)
+            {
+                grid[x, y] = 66;
+            }
+            return grid[x, y];
         }
 
         public Boolean testColision(Boat vessel, int x, int y)
         {
-            Boolean colision = this.testPosition(x, y);
-            this.getPoints(vessel, x, y);
-
+            Boolean colision = false;
+            List<int[]> points = this.getPoints(vessel, x, y);
+            foreach (int[] point in points)
+            {
+                colision = testPosition(point[0], point[1]);
+                if (colision) break;
+            }
             return colision;
+        }
+
+        public Boolean testPosition(int x, int y)
+        {
+            Boolean notEmpty = false;
+            if (x > 9 || y > 9 || x < 0 || y < 0)
+            {
+                notEmpty = true;
+            }
+            else
+            {
+                if ((grid[x, y]) != 0)
+                {
+                    notEmpty = true;
+                }
+            }
+            return notEmpty;
         }
 
         private List<int[]> getPoints(Boat vessel, int x, int y)
@@ -127,16 +157,6 @@ namespace Battleship.Codes
             return lista;
         }
 
-        public Boolean testPosition(int x, int y)
-        {
-            Boolean notEmpty = false;
-            if ((grid[x, y]) != 0)
-            {
-                notEmpty = true;
-            }
-            return notEmpty;
-        }
-
         public void print()
         {
             for (int i = 0; i < 10; i++)
@@ -144,7 +164,17 @@ namespace Battleship.Codes
                 string line = "";
                 for (int j = 0; j < 10; j++)
                 {
-                    line = line + Convert.ToString(grid[i, j]);
+                    string text = null;
+                    //pra ficar bonito =)
+                    if (grid[i, j] == 0)
+                    {
+                        text = "00";
+                    }
+                    else
+                    {
+                        text = Convert.ToString(grid[i, j]);
+                    }
+                    line = line + text + "|";
                 }
                 Debug.WriteLine(line);
             }

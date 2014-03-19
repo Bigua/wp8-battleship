@@ -26,8 +26,22 @@ namespace Battleship.Codes
 
             for (int i = 0; i < 4; i++)
             {
-                boats.Add(new SpeedBoat(10 + i, rnd.Next(1, 3)));
+                boats.Add(new JetSki(10 + i, rnd.Next(1, 3)));
             }
+            for (int i = 0; i < 3; i++)
+            {
+                boats.Add(new SpeedBoat(20 + i, rnd.Next(1, 3)));
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                boats.Add(new Frigate(30 + i, rnd.Next(1, 3)));
+            }
+            for (int i = 0; i < 1; i++)
+            {
+                boats.Add(new Destroyer(40 + i, rnd.Next(1, 3)));
+            }
+            boats.Add(new AircraftCarrier(50, rnd.Next(1, 3)));
+
             board.populate(boats);
         }
 
