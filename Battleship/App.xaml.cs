@@ -63,7 +63,6 @@ namespace Battleship
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
             //aqui começa a bagaça
-            Game jogo = new Game();
         }
 
         // Code to execute when the application is activated (brought to foreground)

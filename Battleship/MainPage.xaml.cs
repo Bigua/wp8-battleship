@@ -8,6 +8,9 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Battleship.Resources;
+using System.Diagnostics;
+using System.Windows.Shapes;
+using Battleship.Codes;
 
 namespace Battleship
 {
@@ -17,11 +20,19 @@ namespace Battleship
         public MainPage()
         {
             InitializeComponent();
-
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+            //Grid.GetRow(bigua);
+            Game jogo = new Game();
         }
 
+        public void fire(object sender, EventArgs e)
+        {
+            Rectangle r = (Rectangle)sender;
+            Debug.WriteLine(Grid.GetRow(r));
+            Debug.WriteLine(Grid.GetColumn(r));
+            //Debug.WriteLine("aee caralho");
+        }
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{

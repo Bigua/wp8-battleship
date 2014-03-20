@@ -15,6 +15,7 @@ namespace Battleship.Codes
         {
             board = new Board();
             this.makeShips();
+     
         }
 
         public void makeShips()
