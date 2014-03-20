@@ -197,7 +197,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Border Width="450">
-                    <TextBlock  Name="newsBar" TextWrapping="Wrap" Text="Agua!" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    <TextBlock  x:Name="newsBar" TextWrapping="Wrap" Text="Agua!" VerticalAlignment="Center" Margin="10,0,0,0"/>
                 </Border>
 
             </Grid>
@@ -221,13 +221,13 @@
                 <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             	<Run Text="Navios Afundados:" />
                 </TextBlock>
-                <TextBlock Name="ShootCount" Style="{StaticResource PhoneTextNormalStyle}"  Grid.Row="0" Grid.Column="2">
+                <TextBlock x:Name="ShootCount" Style="{StaticResource PhoneTextNormalStyle}"  Grid.Row="0" Grid.Column="2">
             	<Run Text="00" />
                 </TextBlock>
-                <TextBlock Name="HitCount" Style="{StaticResource PhoneTextNormalStyle}"  Grid.Row="1" Grid.Column="2">
+                <TextBlock x:Name="HitCount" Style="{StaticResource PhoneTextNormalStyle}"  Grid.Row="1" Grid.Column="2">
             	<Run Text="00" />
                 </TextBlock>
-                <TextBlock Name="SinkedBoats" Style="{StaticResource PhoneTextNormalStyle}"  Grid.Row="2" Grid.Column="2">
+                <TextBlock x:Name="SinkedBoats" Style="{StaticResource PhoneTextNormalStyle}"  Grid.Row="2" Grid.Column="2">
             	<Run Text="00" />
                 </TextBlock>
             </Grid>

@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿using Battleship.Codes;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using Battleship.Resources;
-using System.Diagnostics;
-using System.Windows.Shapes;
-using Battleship.Codes;
+using System;
+using System.Windows.Controls;
 using System.Windows.Media;
-using System.Reflection;
+using System.Windows.Shapes;
 
 namespace Battleship
 {
