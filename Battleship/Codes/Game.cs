@@ -48,7 +48,6 @@ namespace Battleship.Codes
         {
             Boolean efective = false;
             int status = board.shoot(x, y);
-            Debug.WriteLine(status);
             if (status != 0 && status != 77)
             {
                 efective = true;

@@ -45,7 +45,7 @@ namespace Battleship
         {
             rect.Fill = new SolidColorBrush(Colors.Red);
             HitCount.Text = Convert.ToString(Convert.ToInt32(ShootCount.Text) + 1);
-            this.setNews("very effective");
+            this.setNews("It's super effective!");
         }
 
         public void setNews(String news)
