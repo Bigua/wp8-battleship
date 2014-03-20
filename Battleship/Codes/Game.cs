@@ -15,7 +15,7 @@ namespace Battleship.Codes
         {
             board = new Board();
             this.makeShips();
-     
+
         }
 
         public void makeShips()
@@ -45,9 +45,17 @@ namespace Battleship.Codes
             board.populate(boats);
         }
 
-        public void Shoot()
+        public Boolean Shoot(int x, int y)
         {
+            Boolean efective = false;
+            int status = board.shoot(x, y);
+            Debug.WriteLine(status);
+            if (status != 0 && status != 77)
+            {
+                efective = true;
+            }
 
+            return efective;
         }
 
         public void testEffective()

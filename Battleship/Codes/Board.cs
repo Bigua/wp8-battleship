@@ -49,11 +49,21 @@ namespace Battleship.Codes
 
         public int shoot(int x, int y)
         {
+            int status = 0;
             if (grid[x, y] != 0)
             {
-                grid[x, y] = 66;
+                if (grid[x, y] == 66)
+                {
+                    grid[x, y] = 77;
+                    status = 77;
+                }
+                else
+                {
+                    status = grid[x, y];
+                    grid[x, y] = 66;
+                }
             }
-            return grid[x, y];
+            return status;
         }
 
         public Boolean testColision(Boat vessel, int x, int y)
