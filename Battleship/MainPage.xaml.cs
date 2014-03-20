@@ -18,12 +18,10 @@ namespace Battleship
 {
     public partial class MainPage : PhoneApplicationPage
     {
-
         Game jogo;
         // Constructor
         public MainPage()
         {
-
             InitializeComponent();
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -32,10 +30,7 @@ namespace Battleship
 
         public void fire(object sender, EventArgs e)
         {
-
             Rectangle r = (Rectangle)sender;
-            //Debug.WriteLine(Grid.GetRow(r));
-            //Debug.WriteLine(Grid.GetColumn(r));
             if (jogo.Shoot(Grid.GetRow(r), Grid.GetColumn(r)))
             {
                 this.efectiveShoots(r);
@@ -44,7 +39,6 @@ namespace Battleship
             {
                 this.countShoots();
             }
-            //Debug.WriteLine("aee caralho");
         }
 
         public void efectiveShoots(Rectangle rect)
@@ -64,20 +58,5 @@ namespace Battleship
             ShootCount.Text = Convert.ToString(Convert.ToInt32(ShootCount.Text) + 1);
             this.setNews("Água!!!=(");
         }
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
     }
 }

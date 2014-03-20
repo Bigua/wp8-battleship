@@ -50,15 +50,18 @@ namespace Battleship.Codes
         public int shoot(int x, int y)
         {
             int status = 0;
+            //diferente de agua
             if (grid[x, y] != 0)
             {
                 if (grid[x, y] == 66)
                 {
+                    //atidando no mesmo lugar
                     grid[x, y] = 77;
                     status = 77;
                 }
                 else
                 {
+                    //tiro efetivo
                     status = grid[x, y];
                     grid[x, y] = 66;
                 }

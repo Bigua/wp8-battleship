@@ -15,7 +15,6 @@ namespace Battleship.Codes
         {
             board = new Board();
             this.makeShips();
-
         }
 
         public void makeShips()
@@ -54,7 +53,6 @@ namespace Battleship.Codes
             {
                 efective = true;
             }
-
             return efective;
         }
 
