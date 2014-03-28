@@ -22,9 +22,15 @@ namespace Battleship
         public void fire(object sender, EventArgs e)
         {
             Rectangle r = (Rectangle)sender;
-            if (jogo.Shoot(Grid.GetRow(r), Grid.GetColumn(r)))
+            bool[] test = jogo.Shoot(Grid.GetRow(r), Grid.GetColumn(r));
+            if (test[0])
             {
                 this.efectiveShoots(r);
+                if (test[1])
+                {
+                    this.veryEfectiveShoot();
+                    this.testEnd();
+                }
             }
             else
             {
@@ -40,6 +46,27 @@ namespace Battleship
 
             this.setNews("It's super effective!");
 
+        }
+
+        public void veryEfectiveShoot()
+        {
+            SinkedBoats.Text = Convert.ToString(Convert.ToInt32(SinkedBoats.Text) + 1);
+            this.setNews("Navio Afundado!!");
+        }
+
+        public void testEnd()
+        {
+            if (Convert.ToInt32(SinkedBoats.Text) == 11)
+            {
+                var a = ContentPanel.Children;
+
+                foreach (var item in a)
+                {
+                    Rectangle r = (Rectangle)item;
+                    r.Fill = new SolidColorBrush(Colors.Green);
+                }
+                this.setNews("Parabéns, você zerou!");
+            }
         }
 
         public void setNews(String news)

@@ -1,12 +1,15 @@
 ﻿using Battleship.Codes.Vessels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Battleship.Codes
 {
     class Game
     {
-        Board board;
+        public Board board { get; set; }
+        public List<Boat> boats { get; set; }
+
         public Game()
         {
             board = new Board();
@@ -16,8 +19,7 @@ namespace Battleship.Codes
         public void makeShips()
         {
             Random rnd = new Random();
-
-            List<Boat> boats = new List<Boat>();
+            boats = new List<Boat>();
 
             for (int i = 0; i < 4; i++)
             {
@@ -36,25 +38,41 @@ namespace Battleship.Codes
                 boats.Add(new Destroyer(40 + i, rnd.Next(1, 3)));
             }
             boats.Add(new AircraftCarrier(50, rnd.Next(1, 3)));
-
             board.populate(boats);
         }
 
-        public Boolean Shoot(int x, int y)
+        public Boolean[] Shoot(int x, int y)
         {
-            Boolean efective = false;
+            Boolean[] efective = { false, false };
             int status = board.shoot(x, y);
             if (status != 0 && status != 77)
             {
-                efective = true;
+                efective[0] = true;
+                efective[1] = this.TestSunkBoat(this.registerShoot(status));
             }
+
             return efective;
         }
 
-        public void testEffective()
+        public int registerShoot(int status)
         {
-
+            int index = -1;
+            var shootedBoat = from Boat boat in boats
+                              where boat.id == status
+                              select boat;
+            foreach (var item in shootedBoat)
+            {
+                item.damage += 1;
+                index = boats.IndexOf(item);
+            }
+            return index;
         }
 
+        public Boolean TestSunkBoat(int index)
+        {
+            Boolean boat = false;
+            boat = boats[index].isSunked();
+            return boat;
+        }
     }
 }

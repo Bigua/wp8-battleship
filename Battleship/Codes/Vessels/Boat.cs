@@ -17,5 +17,15 @@ namespace Battleship.Codes
             this.sunken = false;
             this.damage = 0;
         }
+
+        public bool isSunked()
+        {
+            bool status = false;
+            if (damage >= (int)type)
+            {
+                status = true;
+            }
+            return status;
+        }
     }
 }
